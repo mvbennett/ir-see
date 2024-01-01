@@ -89,8 +89,9 @@ def photos():
     else:
         print('Taking a still image')
         r = picam2.switch_mode_capture_request_and_stop(capture_config)
-        savestring = "./images/capture" + str(index) + ".dng"
-        r.save_dng(savestring)
+        savestring = "./images/capture" + str(index)
+        r.save("main", savestring + ".jpg")
+        r.save_dng(savestring + ".dng")
     print('Saved as '+ savestring)
 
 if __name__ == "__main__":
